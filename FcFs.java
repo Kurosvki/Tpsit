@@ -2,28 +2,37 @@ package it.edu.iisgubbio.fcfs;
 
 public class FcFs {
 	
-	String processi;
+	String processi[];
 	int tArrivo[];
 	int tEsecuzione[];
 	int tServizio[];
-	int tAttesa[];
-
-	public String FcFs(String processi) {
-		return processi;
+	public String Fcfs(String x) {
+		return x;
 	}
-	
-	public int [] arrivo() {
+	//Assegno un nome ai processi	
+	public void setP() {
+		for(int x=0;x<this.processi.length;x++) {
+			this.processi[x]+=x;
+		}
+	}
+	//Prendo il tempo di arrivo
+	public int[] getTarrivo() {
+		for(int x=0;x<tArrivo.length;x++) {
+			tArrivo[x]=x;
+		}
 		return tArrivo;
 	}
-	
-	public int[] esecuzione() {
-		return tEsecuzione;
+	//Tempo che ci mette per essere eseguito
+	public void setTesecuzione(int[] te) {
+		this.tEsecuzione = te;
 	}
-	
-	public int[] servizio() {
+	//Calcolo del tempo che server per essere eseguito
+	public int[] getTs() {
+		for (int x=0;x<tServizio.length;x++) {
+			tServizio[x]=tEsecuzione[x]+tArrivo[x-1];
+		}
 		return tServizio;
 	}
-	public int[] attesa() {
-		return tAttesa;
 	}
-} 
+
+	
